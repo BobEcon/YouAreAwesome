@@ -11,6 +11,7 @@ struct ContentView: View {
     @State private var message: String = ""
     @State private var imageName: String = ""
     @State private var imageNumber = 0
+    @State private var messageNumber = 0
     
     var body: some View {
         
@@ -27,15 +28,26 @@ struct ContentView: View {
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .foregroundStyle(.red)
+                .multilineTextAlignment(.center)
 
             Spacer()
             
-            Button("Press Me!") {
-                let message1 = "You are Awesome!"
-                let message2 = "You are Great!"
+            Button("Show Message") {
+                let messages = ["You are Awesome!",
+                                "You are Great!",
+                                "You are Fantastic!",
+                                "Fabulous? That's You!",
+                                "You Make Me smile!",
+                                "When the Genius Bar Needs help, They Call You!"]
                 
                 imageName = "image" + String(imageNumber)
-                message = message == message1 ? message2 : message1
+
+                message = messages[messageNumber]
+                
+                messageNumber += 1
+                if messageNumber == messages.count {
+                    messageNumber = 0
+                }
                 
                 imageNumber += 1
                 if imageNumber > 9 {
