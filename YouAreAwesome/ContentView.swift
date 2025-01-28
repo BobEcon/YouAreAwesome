@@ -10,8 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @State private var message: String = ""
     @State private var imageName: String = ""
-    @State private var imageNumber = 0
-    @State private var messageNumber = 0
+//    @State private var imageNumber = 0
+//    @State private var messageNumber = 0
     
     var body: some View {
         
@@ -44,19 +44,19 @@ struct ContentView: View {
                                 "You Make Me smile!",
                                 ]
                 
-                imageName = "image" + String(imageNumber)
+                imageName = "image" + String(Int.random(in: 0...9))
 
-                message = messages[messageNumber]
+                message = messages[Int.random(in: 0..<messages.count)]
                 
-                messageNumber += 1
-                if messageNumber == messages.count {
-                    messageNumber = 0
-                }
-                
-                imageNumber += 1
-                if imageNumber > 9 {
-                    imageNumber = 0
-                }
+//                messageNumber += 1
+//                if messageNumber == messages.count {
+//                    messageNumber = 0
+//                }
+//                
+//                imageNumber += 1
+//                if imageNumber > 9 {
+//                    imageNumber = 0
+//                }
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
