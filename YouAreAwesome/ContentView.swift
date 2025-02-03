@@ -40,7 +40,7 @@ struct ContentView: View {
                 .shadow(radius: 30)
                 .animation(.default, value: imageName)
             
-
+            
             Spacer()
             
             HStack {
@@ -63,10 +63,10 @@ struct ContentView: View {
                                     "Fabulous? That's You!",
                                     "You Make Me smile!",
                     ]
-// It works here too
-//                    if audioPlayer != nil && audioPlayer.isPlaying {
-//                        audioPlayer.stop()
-//                    }
+                    // It works here too
+                    //                    if audioPlayer != nil && audioPlayer.isPlaying {
+                    //                        audioPlayer.stop()
+                    //                    }
                     lastMessageNumber = nonRepeatingRandom(lastNumber: lastMessageNumber, upperBound: messages.count-1)
                     message = messages[lastMessageNumber]
                     
@@ -81,7 +81,9 @@ struct ContentView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .font(.title2)
+                
             }
+            .tint(.accentColor)
         }
         .padding()
         
@@ -113,6 +115,11 @@ struct ContentView: View {
     }
 }
 
-#Preview {
+#Preview("Light Mode") {
     ContentView()
+        .preferredColorScheme(.light)
+}
+#Preview("Dark Mode") {
+    ContentView()
+        .preferredColorScheme(.dark)
 }
